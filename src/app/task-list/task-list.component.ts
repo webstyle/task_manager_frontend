@@ -21,10 +21,7 @@ export class TaskListComponent implements OnInit, OnChanges {
   }
 
   ngOnInit() {
-    this.request.loadTasks().then((response: Array<Task>) => {
-      console.log(response);
-      this.list = response
-    });
+    this.request.loadTasks().then((response: Array<Task>) => this.list = response);
   }
 
   run(id: string) {
