@@ -1,6 +1,9 @@
-# TaskManagerFrontend
+# Task Manager (Frontend)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.1.1.
+
+## Backend
+Install [backend](https://github.com/WebStyle/task_manager_backend) 
 
 ## Installation
 Angular CLI.
