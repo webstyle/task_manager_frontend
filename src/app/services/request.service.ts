@@ -27,6 +27,12 @@ export class RequestService {
       .catch(this.handleError)
   }
 
+  public removeTask(id: string): Promise<Task> {
+    return this.http.delete(`${environment.url}/task/${id}`)
+      .toPromise()
+      .then(response => response.json() as Task)
+      .catch(this.handleError)
+  }
 
   public save(data: Task): Promise<TaskResult> {
     return this.http.post(`${environment.url}/task/`, data)

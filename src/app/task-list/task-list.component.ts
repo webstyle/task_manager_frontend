@@ -21,7 +21,7 @@ export class TaskListComponent implements OnInit, OnChanges {
   }
 
   ngOnInit() {
-    this.request.loadTasks().then((response: Array<Task>) => this.list = response);
+    this.loadAll();
   }
 
   run(id: string) {
@@ -32,9 +32,17 @@ export class TaskListComponent implements OnInit, OnChanges {
     });
   }
 
+  remove(id: string) {
+    this.request.removeTask(id).then(response => this.loadAll());
+  }
+
   closeResult() {
     this.showResult = false;
     this.result = new TaskResult();
+  }
+
+  loadAll() {
+    this.request.loadTasks().then((response: Array<Task>) => this.list = response);
   }
 
   @Input()
