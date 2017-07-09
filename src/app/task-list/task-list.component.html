@@ -1,0 +1,11 @@
+<div *ngIf="showResult">
+  <pre class="result">{{result | json}}</pre>
+  <a (click)="closeResult()" class="close-button">close</a>
+</div>
+<div class="item" *ngFor="let item of list">
+  <h3>{{item.title}}</h3>
+  <button class="btn btn-primary" (click)="run(item._id)">run</button>
+  <p>{{item.description}}</p>
+  <pre><code>{{item.command}}</code></pre>
+  <pre><code>{{item.filePath}}</code></pre>
+</div>
