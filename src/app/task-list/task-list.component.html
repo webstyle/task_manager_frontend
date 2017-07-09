@@ -1,11 +1,32 @@
-<div *ngIf="showResult">
-  <pre class="result">{{result | json}}</pre>
-  <a (click)="closeResult()" class="close-button">close</a>
+<div *ngIf="showResult" class="alert alert-success">
+  <h3>Results</h3>
+  <pre *ngIf="result.task?.filePath">{{result.task?.filePath}}</pre>
+  <pre *ngIf="result.task?.command">{{result.task?.command}}</pre>
+  <div *ngIf="result?.stderr">
+    stderr:
+    <pre>{{result?.stderr | json}}</pre>
+  </div>
+  <div *ngIf="result?.stdout">
+    stdout
+    <pre>{{result?.stdout | json}}</pre>
+  </div>
+
+  <a (click)="closeResult()" class="btn btn-default">close</a>
 </div>
+<hr/>
 <div class="item" *ngFor="let item of list">
   <h3>{{item.title}}</h3>
-  <button class="btn btn-primary" (click)="run(item._id)">run</button>
+  <div class="btn-group" role="group" aria-label="...">
+    <button type="button" (click)="run(item._id)" class="btn btn-default">run</button>
+    <button type="button" class="btn btn-default">show</button>
+    <button type="button" class="btn btn-danger">delete</button>
+  </div>
   <p>{{item.description}}</p>
-  <pre><code>{{item.command}}</code></pre>
-  <pre><code>{{item.filePath}}</code></pre>
+  <p>Created at: {{item.create}}</p>
+  <div *ngIf="item.command">
+    <pre>{{item.command}}</pre>
+  </div>
+  <div *ngIf="item.filePath">
+    <pre>{{item.filePath}}</pre>
+  </div>
 </div>

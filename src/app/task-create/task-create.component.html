@@ -1,0 +1,31 @@
+<div class="well">
+  <form>
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input type="text" class="form-control" [(ngModel)]="task.title" [ngModelOptions]="{standalone: true}" id="title" placeholder="Title">
+    </div>
+
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea class="form-control" rows="3" [(ngModel)]="task.description" [ngModelOptions]="{standalone: true}" id="description" placeholder="Description"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="title">File path</label>
+      <input type="text" class="form-control" [(ngModel)]="task.filePath" [ngModelOptions]="{standalone: true}" id="filePath" placeholder="File path">
+    </div>
+
+    <div class="form-group">
+      <label for="command">Command</label>
+      <textarea class="form-control" rows="3" [(ngModel)]="task.command" [ngModelOptions]="{standalone: true}" id="command" placeholder="command"></textarea>
+    </div>
+
+    <div class="checkbox">
+      <label>
+        <input type="checkbox" [(ngModel)]="task.saveAndRun" [ngModelOptions]="{standalone: true}"> Save and run
+      </label>
+    </div>
+
+    <button type="submit" (click)="save()" class="btn btn-default">Submit</button>
+  </form>
+</div>

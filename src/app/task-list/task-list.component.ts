@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnChanges, OnInit} from '@angular/core';
 import {RequestService} from '../services/request.service';
 import {Task} from '../classes/task';
 import {TaskResult} from '../classes/task-result';
@@ -8,12 +8,16 @@ import {TaskResult} from '../classes/task-result';
   templateUrl: './task-list.component.html',
   styleUrls: ['./task-list.component.css']
 })
-export class TaskListComponent implements OnInit {
+export class TaskListComponent implements OnInit, OnChanges {
   list: Array<Task> = [];
-  result: TaskResult = new TaskResult();
-  showResult = false;
+  @Input() result: TaskResult = new TaskResult();
+  @Input() showResult = false;
 
   constructor(private request: RequestService) {
+  }
+
+  ngOnChanges() {
+    this.list.push(this.result.task);
   }
 
   ngOnInit() {
@@ -34,6 +38,12 @@ export class TaskListComponent implements OnInit {
   closeResult() {
     this.showResult = false;
     this.result = new TaskResult();
+  }
+
+  @Input()
+  task(data: Task) {
+    console.log(data);
+    this.list.push(data);
   }
 
 }

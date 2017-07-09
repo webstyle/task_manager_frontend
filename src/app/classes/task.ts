@@ -10,8 +10,9 @@ export class Task {
   command: string;
   stderr: string;
   stdout: string;
-  exitCode: number;
-  status: string;
+  exitCode?: number;
+  status?: string;
+  saveAndRun: boolean;
   constructor() {
     this._id = '';
     this.title = '';
@@ -26,6 +27,7 @@ export class Task {
     this.stdout = '';
     this.exitCode = 0;
     this.status = '';
+    this.saveAndRun = false;
   }
 
 

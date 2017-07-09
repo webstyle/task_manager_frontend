@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {TaskResult} from './classes/task-result';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Task Manager';
+  title = 'Task Manager v0.0.1';
+  showAdd = false;
+  taskResult: TaskResult = new TaskResult;
+  showResult = false;
+
+  newTask(data: TaskResult) {
+    this.taskResult = data;
+    this.showResult = data.task.saveAndRun;
+  }
 }

@@ -1,8 +1,14 @@
 <!--The whole content below can be removed with the new code.-->
-<div style="text-align:center">
-  <h1>{{title}}</h1>
+<div class="container">
+  <div>
+    <h1>{{title}}
+      <button class="btn btn-success" (click)="showAdd=true">add task</button>
+    </h1>
+  </div>
+  <div *ngIf="showAdd">
+    <app-task-create (onClose)="showAdd = !$event" (onNewTask)="newTask($event)"></app-task-create>
+  </div>
+  <div>
+    <app-task-list [showResult]="showResult" [result]="taskResult"></app-task-list>
+  </div>
 </div>
-<div>
-  <app-task-list></app-task-list>
-</div>
-

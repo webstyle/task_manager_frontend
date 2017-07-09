@@ -27,6 +27,14 @@ export class RequestService {
       .catch(this.handleError)
   }
 
+
+  public save(data: Task): Promise<TaskResult> {
+    return this.http.post(`${environment.url}/task/`, data)
+      .toPromise()
+      .then(response => response.json() as TaskResult)
+      .catch(this.handleError)
+  }
+
   private handleError(error: Response | any): Promise<any> {
     return Promise.reject('error');
   }
