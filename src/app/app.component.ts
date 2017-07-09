@@ -7,7 +7,7 @@ import {TaskResult} from './classes/task-result';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Task Manager v0.0.1';
+  title = 'Task Manager App';
   showAdd = false;
   taskResult: TaskResult = new TaskResult;
   showResult = false;
