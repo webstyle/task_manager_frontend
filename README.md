@@ -1,7 +1,24 @@
-# TaskManagerFrontend
+# Task Manager App (Frontend)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.1.1.
 
+## Backend
+Install [backend](https://github.com/WebStyle/task_manager_backend) 
+
+## Installation
+Angular CLI.
+```bash
+$ npm install -g @angular/cli
+```
+Clone a copy of the repo:
+```bash
+$ git clone https://github.com/WebStyle/task_manager_frontend.git
+```
+Install dependencies:
+```bash
+$ cd task_manager_frontend
+$ npm install
+```
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
